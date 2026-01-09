@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intake — Bronsaer Capital</title>
+  <meta name="description" content="Intake — Bronsaer Capital. Eerste kennismaking, criteria en stappen voor deelname aan een fonds in opbouw.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css">
+
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" sizes="180x180">
+
+  <!-- Input styling (kan later naar styles.css) -->
+  <style>
+    .input{
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.035);
+      color: rgba(255,248,235,0.90);
+      outline: none;
+    }
+    .input::placeholder{ color: rgba(255,248,235,0.45); }
+    .input:focus{
+      border-color: rgba(255,248,235,0.22);
+      background: rgba(255,255,255,0.045);
+    }
+    textarea.input{ resize: vertical; min-height: 96px; }
+
+    /* Anchor offset als je topbar fixed/sticky is */
+    #formulier { scroll-margin-top: 120px; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header class="topbar" role="banner">
+      <div class="topbar__inner">
+        <a class="brand" href="./index.html" aria-label="Bronsaer Capital">
+          <img class="brand__mark" src="./assets/logo-bc.svg" alt="BC">
+          <div class="brand__meta">AMSTERDAM-BASED · WILLEMSPARK · FONDS IN OPBOUW</div>
+        </a>
+
+        <nav class="nav" aria-label="Hoofdnavigatie">
+          <a class="nav__link" href="./index.html">Home</a>
+          <a class="nav__link" href="./strategie.html">Strategie</a>
+          <a class="nav__link is-active" href="./intake.html">Intake</a>
+          <a class="nav__link" href="./over.html">Over</a>
+          <a class="nav__link" href="./disclaimer.html">Disclaimer</a>
+
+          <!-- BELANGRIJK: dit werkt vanaf elke pagina -->
+          <a class="btn" href="./intake.html#formulier">Intake aanvragen</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="container">
+
+        <!-- Intro -->
+        <section class="section">
+          <h1 class="page__title">Intake</h1>
+          <p class="page__subtitle">
+            Bronsaer Capital bevindt zich in een opbouwfase. Deelname of samenwerking is uitsluitend mogelijk na een
+            persoonlijk intakeproces en beoordeling van geschiktheid. Deze pagina beschrijft het proces, de uitgangspunten
+            en de informatie die nodig is om een eerste gesprek efficiënt te laten verlopen.
+          </p>
+
+          <div class="grid">
+            <article class="card">
+              <h2>Doel van de intake</h2>
+              <p>
+                De intake is bedoeld om wederzijds te toetsen of er een passende match is qua verwachtingen,
+                risicobereidheid en horizon. Er wordt nadrukkelijk gekeken naar geschiktheid en naar de mate waarin
+                de strategie en werkwijze aansluiten op de situatie van de betrokken partij.
+              </p>
+              <p class="muted">
+                De intake is informatief en vormt geen aanbod of toezegging.
+              </p>
+            </article>
+
+            <article class="card">
+              <h2>Snelle aanvraag</h2>
+              <p>
+                Een intake-aanvraag kan eenvoudig per e-mail. Voor stabiliteit houden we de e-mail kort; het intake-document
+                kun je als bijlage meesturen.
+              </p>
+
+              <div class="contact">
+                <div>
+                  <div class="label">E-mail</div>
+                  <a class="link" href="mailto:contact@bronsaercapital.com">contact@bronsaercapital.com</a>
+                </div>
+                <div>
+                  <div class="label">Locatie</div>
+                  <div class="value">Amsterdam (Willemspark), Nederland</div>
+                </div>
+              </div>
+
+              <a class="btn" href="mailto:contact@bronsaercapital.com?subject=Intake%20aanvraag%20—%20Bronsaer%20Capital">
+                Intake aanvragen →
+              </a>
+
+              <p class="note">
+                Aanmeldingen worden beoordeeld op geschiktheid. Bronsaer Capital behoudt zich het recht voor om verzoeken niet in behandeling te nemen.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Formulier -->
+        <section class="section" id="formulier">
+          <div class="grid">
+            <article class="card">
+              <h2>Intake formulier</h2>
+              <p class="muted">
+                Vul onderstaande gegevens in en download het intake document als PDF (via print). Stuur de PDF vervolgens per e-mail.
+              </p>
+
+              <form id="intakeForm" class="form" autocomplete="on">
+                <div class="contact">
+                  <div>
+                    <div class="label">Naam</div>
+                    <input class="input" name="naam" required>
+                  </div>
+                  <div>
+                    <div class="label">E-mail</div>
+                    <input class="input" name="email" type="email" required>
+                  </div>
+                </div>
+
+                <div class="contact">
+                  <div>
+                    <div class="label">Organisatie (optioneel)</div>
+                    <input class="input" name="org">
+                  </div>
+                  <div>
+                    <div class="label">Horizon</div>
+                    <input class="input" name="horizon" placeholder="Bijv. 12–36 maanden / 3–5 jaar">
+                  </div>
+                </div>
+
+                <div>
+                  <div class="label">Beleggingservaring</div>
+                  <textarea class="input" name="ervaring" rows="3" placeholder="Kort: ervaring, instrumenten, marktbenadering..."></textarea>
+                </div>
+
+                <div>
+                  <div class="label">Motivatie</div>
+                  <textarea class="input" name="motivatie" rows="3" placeholder="Waarom Bronsaer Capital? Wat zoek je?"></textarea>
+                </div>
+
+                <div>
+                  <div class="label">Vragen / opmerkingen</div>
+                  <textarea class="input" name="overig" rows="3" placeholder="Eventuele vragen of context..."></textarea>
+                </div>
+
+                <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;">
+                  <button class="btn" type="button" id="downloadIntakePDF">
+                    Download intake document (PDF)
+                  </button>
+
+                  <a class="btn"
+                     href="mailto:contact@bronsaercapital.com?subject=Intakeformulier%20—%20Bronsaer%20Capital">
+                    Verstuur per e-mail
+                  </a>
+                </div>
+
+                <p class="note">
+                  Het formulier wordt lokaal gegenereerd en niet opgeslagen. Dit is geen aanbod of beleggingsadvies.
+                </p>
+              </form>
+            </article>
+
+            <article class="card">
+              <h2>Wat we bespreken</h2>
+              <ul class="bullets">
+                <li><strong>Doelstelling</strong> — waarom je wilt deelnemen / samenwerken</li>
+                <li><strong>Horizon</strong> — korte vs. lange termijn verwachtingen</li>
+                <li><strong>Risicobereidheid</strong> — comfort met volatiliteit en drawdowns</li>
+                <li><strong>Liquiditeit</strong> — mate waarin kapitaal beschikbaar moet blijven</li>
+                <li><strong>Ervaring</strong> — beleggingservaring en begrip van instrumenten</li>
+              </ul>
+              <p class="muted">
+                Transparantie over verwachtingen voorkomt misalignment later.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Proces & criteria -->
+        <section class="section">
+          <div class="grid">
+            <article class="card">
+              <h2>Proces (stappen)</h2>
+              <ul class="bullets">
+                <li><strong>1. Aanvraag</strong> — korte introductie en context</li>
+                <li><strong>2. Eerste gesprek</strong> — verwachtingen, horizon, risicoprofiel</li>
+                <li><strong>3. Toetsing geschiktheid</strong> — passendheid en voorwaarden</li>
+                <li><strong>4. Vastlegging</strong> — afspraken en documentatie (indien van toepassing)</li>
+                <li><strong>5. Start</strong> — gefaseerde onboarding en toelichting</li>
+              </ul>
+              <p class="muted">
+                Afhankelijk van de situatie kan aanvullende informatie worden gevraagd.
+              </p>
+            </article>
+
+            <article class="card">
+              <h2>Indicatieve criteria</h2>
+              <p>
+                Bronsaer Capital streeft naar een zorgvuldig samengestelde groep deelnemers. Toelating is niet automatisch
+                en is afhankelijk van geschiktheid, begrip van risico’s en de mate waarin verwachtingen aansluiten bij de werkwijze.
+              </p>
+              <ul class="bullets">
+                <li><strong>Begrip van risico</strong> — inclusief short exposure en marktschommelingen</li>
+                <li><strong>Passende horizon</strong> — geen behoefte aan korte-termijn liquidatie op basis van ruis</li>
+                <li><strong>Realistische verwachtingen</strong> — proces boven belofte</li>
+                <li><strong>Professionaliteit</strong> — duidelijke communicatie en afspraken</li>
+              </ul>
+              <p class="note">
+                Zie de <a class="link" href="./disclaimer.html">Disclaimer</a> voor een juridische toelichting.
+              </p>
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="footer" aria-label="Footer">
+      <div class="container">
+        <h3>Disclaimer</h3>
+        <p>
+          De informatie op deze website is uitsluitend bedoeld voor informatieve doeleinden en vormt geen aanbod,
+          uitnodiging of aanbeveling. Beleggen brengt risico’s met zich mee. Resultaten uit het verleden bieden geen garantie voor de toekomst.
+        </p>
+        <div class="footer__meta">© <span id="year"></span> Bronsaer Capital — Amsterdam</div>
+      </div>
+    </footer>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script>
+(async function () {
+  const btn = document.getElementById("downloadIntakePDF");
+  const formEl = document.getElementById("intakeForm");
+  if (!btn || !formEl) return;
+
+  async function fetchArrayBuffer(url) {
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) throw new Error(`Fetch failed: ${url}`);
+    return await res.arrayBuffer();
+  }
+
+  btn.addEventListener("click", async () => {
+    try {
+      const { PDFDocument, StandardFonts, rgb } = PDFLib;
+
+      // Form data
+      const fd = new FormData(formEl);
+      const v = (k) => (fd.get(k) ?? "").toString().trim();
+
+      // Maak PDF
+      const pdfDoc = await PDFDocument.create();
+      const page = pdfDoc.addPage([595.28, 841.89]); // A4 in points
+      const { width, height } = page.getSize();
+
+      // Fonts
+      const fontBody = await pdfDoc.embedFont(StandardFonts.Helvetica);
+      const fontTitle = await pdfDoc.embedFont(StandardFonts.TimesRoman);
+
+      // Kleuren (rustig)
+      const ink = rgb(0.10, 0.10, 0.12);
+      const muted = rgb(0.35, 0.35, 0.38);
+      const line = rgb(0.85, 0.85, 0.88);
+
+      // Marges
+      const M = 56; // ~20mm
+      let y = height - M;
+
+      // Logo (PNG)
+      let logoDrawn = false;
+      try {
+        const logoBytes = await fetchArrayBuffer("./assets/logo-bc.png");
+        const logoPng = await pdfDoc.embedPng(logoBytes);
+        const logoW = 120;
+        const logoH = (logoPng.height / logoPng.width) * logoW;
+        page.drawImage(logoPng, { x: M, y: y - logoH + 6, width: logoW, height: logoH });
+        logoDrawn = true;
+      } catch (_) {
+        // fallback: geen logo
+      }
+
+      // Header rechts
+      const today = new Date();
+      const dateNL = today.toLocaleDateString("nl-NL");
+
+      const headerX = M + (logoDrawn ? 140 : 0);
+      page.drawText("Intake formulier", {
+        x: headerX,
+        y: y - 6,
+        size: 22,
+        font: fontTitle,
+        color: ink,
+      });
+      page.drawText(`Bronsaer Capital · Amsterdam · ${dateNL}`, {
+        x: headerX,
+        y: y - 28,
+        size: 10,
+        font: fontBody,
+        color: muted,
+      });
+
+      // Divider
+      y -= 52;
+      page.drawLine({ start: { x: M, y }, end: { x: width - M, y }, thickness: 1, color: line });
+
+      // Helpers
+      const form = pdfDoc.getForm();
+
+      function label(txt, x, yy) {
+        page.drawText(txt, { x, y: yy, size: 9, font: fontBody, color: muted });
+      }
+
+      function textField(name, x, yy, w, h, preset = "") {
+        const f = form.createTextField(name);
+        f.setText(preset);
+        f.enableMultiline();
+        f.addToPage(page, {
+          x, y: yy - h,
+          width: w, height: h,
+          borderWidth: 1,
+          borderColor: line,
+          textColor: ink,
+          font: fontBody,
+        });
+        return f;
+      }
+
+      // Layout grid
+      y -= 28;
+      page.drawText("Persoonsgegevens", { x: M, y, size: 12, font: fontBody, color: ink });
+      y -= 10;
+      page.drawLine({ start: { x: M, y }, end: { x: width - M, y }, thickness: 1, color: line });
+
+      y -= 18;
+
+      const colGap = 18;
+      const colW = (width - 2 * M - colGap) / 2;
+
+      // Rij 1
+      label("Naam", M, y);
+      label("E-mail", M + colW + colGap, y);
+
+      y -= 6;
+      textField("naam", M, y, colW, 24, v("naam"));
+      textField("email", M + colW + colGap, y, colW, 24, v("email"));
+
+      y -= 42;
+
+      // Rij 2
+      label("Organisatie (optioneel)", M, y);
+      label("Horizon", M + colW + colGap, y);
+
+      y -= 6;
+      textField("org", M, y, colW, 24, v("org"));
+      textField("horizon", M + colW + colGap, y, colW, 24, v("horizon"));
+
+      y -= 52;
+
+      // Grote velden
+      page.drawText("Beleggingservaring", { x: M, y, size: 11, font: fontBody, color: ink });
+      y -= 8;
+      textField("ervaring", M, y, width - 2 * M, 90, v("ervaring"));
+
+      y -= 110;
+      page.drawText("Motivatie", { x: M, y, size: 11, font: fontBody, color: ink });
+      y -= 8;
+      textField("motivatie", M, y, width - 2 * M, 90, v("motivatie"));
+
+      y -= 110;
+      page.drawText("Vragen / opmerkingen", { x: M, y, size: 11, font: fontBody, color: ink });
+      y -= 8;
+      textField("overig", M, y, width - 2 * M, 90, v("overig"));
+
+      // Footer
+      const footer = "Informatief document — geen aanbod of beleggingsadvies. Eventuele samenwerking uitsluitend na intake en vastlegging van afspraken.";
+      page.drawLine({ start: { x: M, y: 70 }, end: { x: width - M, y: 70 }, thickness: 1, color: line });
+      page.drawText(footer, { x: M, y: 52, size: 8.5, font: fontBody, color: muted });
+
+      // Zorg dat form fields “zichtbaar” en editable zijn in viewers
+      form.updateFieldAppearances(fontBody);
+
+      // Download
+      const pdfBytes = await pdfDoc.save();
+      const blob = new Blob([pdfBytes], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `BronsaerCapital-Intake-${today.toISOString().slice(0,10)}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+
+    } catch (err) {
+      console.error(err);
+      alert("PDF generatie mislukt. Check console (F12) voor details.");
+    }
+  });
+})();
+</script>
+
+  <
+
+</body>
+</html>

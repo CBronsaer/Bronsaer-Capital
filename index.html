@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bronsaer Capital — Amsterdam</title>
+  <meta name="description" content="Bronsaer Capital is een Amsterdam-based fonds in opbouw met focus op shortstrategieën, ETF-stabilisatie en strikt risicobeheer.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css">
+
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" sizes="180x180">
+</head>
+<script>
+(function(){
+  const btn = document.getElementById("navIntakeStart");
+  const target = document.getElementById("formulier");
+  if (!btn || !target) return;
+
+  btn.addEventListener("click", function(e){
+    e.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", "#formulier");
+  });
+})();
+</script>
+<body id="top">
+  <div class="wrap">
+
+    <header class="topbar" role="banner">
+      <div class="topbar__inner">
+        <a class="brand" href="./index.html" aria-label="Bronsaer Capital">
+          <img class="brand__mark" src="./assets/logo-bc.svg" alt="BC">
+          <div class="brand__meta">AMSTERDAM-BASED · WILLEMSPARK · FONDS IN OPBOUW</div>
+        </a>
+
+        <nav class="nav" aria-label="Hoofdnavigatie">
+          <a class="nav__link is-active" href="./index.html">Home</a>
+          <a class="nav__link" href="./strategie.html">Strategie</a>
+          <a class="nav__link" href="./intake.html">Intake</a>
+          <a class="nav__link" href="./over.html">Over</a>
+          <a class="nav__link" href="./disclaimer.html">Disclaimer</a>
+
+          <a class="btn" href="./intake.html#formulier">Intake aanvragen</a>
+</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="container">
+
+        <!-- HERO HOME -->
+        <section class="hero" aria-label="Intro">
+          <div>
+            <p class="hero__kicker">Willemspark · Amsterdam</p>
+
+            <h1 class="hero__title">Bronsaer Capital</h1>
+
+            <p class="hero__lead">
+              Bronsaer Capital is een Amsterdam-based fonds in opbouw met focus op shorts in structureel overgewaardeerde
+              bedrijven en sectoren, gecombineerd met stabiliserende exposures en strikt risicobeheer.
+            </p>
+
+            <p class="hero__lead">
+              De benadering is defensief van aard: kapitaalbehoud, liquiditeit en discipline staan centraal. Rendement
+              wordt nagestreefd vanuit asymmetrische kansen, niet vanuit maximale blootstelling.
+            </p>
+
+            <!-- microtekst BOVEN de knoppen -->
+            <p class="hero__micro">
+              Eerste online presentatie vanuit Willemspark. Trackrecord en documentatie worden gefaseerd toegevoegd en gedeeld na intake.
+            </p>
+
+            <div class="hero__actions">
+              <a class="btn" href="./strategie.html">Bekijk strategie</a>
+              <a class="btn btn--ghost" href="./intake.html">Intake & criteria</a>
+            </div>
+
+            <!-- 3 kernpunten (compact, professioneel) -->
+            <div class="features" aria-label="Kernpunten">
+              <div class="feature">
+                <div class="feature__label">Positionering</div>
+                <p class="feature__text">
+                  Focus op inefficiënties, overwaardering en narrative risk. Selectie op basis van fundamentals en uitvoerbaarheid.
+                </p>
+              </div>
+
+              <div class="feature">
+                <div class="feature__label">Risicobeheer</div>
+                <p class="feature__text">
+                  Position sizing, limieten, liquiditeitschecks en een stabiliserende ETF-laag ter demping van volatiliteit.
+                </p>
+              </div>
+
+              <div class="feature">
+                <div class="feature__label">Proces</div>
+                <p class="feature__text">
+                  Fonds in opbouw. Verdere details volgen na intake en geschiktheidsbeoordeling — geen publieke claims, wel structuur.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Elegant groot logo (niet BOEM) -->
+          <div class="hero__markwrap" aria-hidden="true">
+            <div class="hero__mark">
+              <img src="./assets/logo-bc.svg" alt="">
+            </div>
+          </div>
+        </section>
+
+        <section class="section" aria-label="Samenvatting en contact">
+          <div class="grid">
+            <article class="card">
+              <h2>Strategie (samenvatting)</h2>
+              <p>
+                Het fonds richt zich op het identificeren van structurele overwaardering en inefficiënties, met een conservatieve aanpak op
+                risico en liquiditeit.
+              </p>
+              <ul class="bullets">
+                <li>Shortselectie op fundamentele waardering, katalysatoren en marktdynamiek</li>
+                <li>ETF-component ter stabilisatie en concentratiebeperking</li>
+                <li>Liquiditeit/marge-management via liquide instrumenten</li>
+              </ul>
+              <p class="mt-14">
+                <a class="link" href="./strategie.html">Lees de volledige strategie →</a>
+              </p>
+            </article>
+
+            <article class="card">
+              <h2>Intake</h2>
+              <p>
+                Deelname is uitsluitend mogelijk na een persoonlijk intakegesprek en beoordeling van geschiktheid.
+              </p>
+
+              <div class="contact">
+                <div>
+                  <div class="label">E-mail</div>
+                  <a class="link" href="mailto:contact@bronsaercapital.com">contact@bronsaercapital.com</a>
+                </div>
+                <div>
+                  <div class="label">Locatie</div>
+                  <div class="value">Amsterdam, Nederland</div>
+                </div>
+              </div>
+
+              <a class="btn" href="mailto:contact@bronsaercapital.com?subject=Intake%20aanvraag%20Bronsaer%20Capital&body=Naam:%0D%0AOrganisatie:%0D%0AErvaring:%0D%0AIndicatie%20horizon:%0D%0AReden%20voor%20intake:%0D%0A">
+                → Intake aanvragen
+              </a>
+
+              <p class="note">
+                Aanmeldingen worden beoordeeld op geschiktheid. Bronsaer Capital behoudt zich het recht voor om contactverzoeken niet in behandeling te nemen.
+              </p>
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="footer" aria-label="Footer">
+      <div class="container">
+        <h3>Disclaimer</h3>
+        <p>
+          De informatie op deze website is uitsluitend bedoeld voor informatieve doeleinden en vormt geen aanbod,
+          uitnodiging of aanbeveling. Beleggen brengt risico’s met zich mee. Resultaten uit het verleden bieden geen garantie voor de toekomst.
+        </p>
+        <div class="footer__meta">© <span id="year"></span> Bronsaer Capital — Amsterdam</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
