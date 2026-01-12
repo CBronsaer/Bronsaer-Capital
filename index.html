@@ -12,30 +12,19 @@
 
   <link rel="stylesheet" href="./styles.css">
 
-  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="./assets/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" sizes="180x180">
+  <!-- Icons (root) -->
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180">
 </head>
-<script>
-(function(){
-  const btn = document.getElementById("navIntakeStart");
-  const target = document.getElementById("formulier");
-  if (!btn || !target) return;
 
-  btn.addEventListener("click", function(e){
-    e.preventDefault();
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
-    history.replaceState(null, "", "#formulier");
-  });
-})();
-</script>
 <body id="top">
   <div class="wrap">
 
     <header class="topbar" role="banner">
       <div class="topbar__inner">
         <a class="brand" href="./index.html" aria-label="Bronsaer Capital">
-          <img class="brand__mark" src="./assets/logo-bc.svg" alt="BC">
+          <img class="brand__mark" src="./logo-bc.svg" alt="BC">
           <div class="brand__meta">AMSTERDAM-BASED · WILLEMSPARK · FONDS IN OPBOUW</div>
         </a>
 
@@ -47,7 +36,6 @@
           <a class="nav__link" href="./disclaimer.html">Disclaimer</a>
 
           <a class="btn" href="./intake.html#formulier">Intake aanvragen</a>
-</a>
         </nav>
       </div>
     </header>
@@ -110,7 +98,7 @@
           <!-- Elegant groot logo (niet BOEM) -->
           <div class="hero__markwrap" aria-hidden="true">
             <div class="hero__mark">
-              <img src="./assets/logo-bc.svg" alt="">
+              <img src="./logo-bc.svg" alt="">
             </div>
           </div>
         </section>
@@ -176,6 +164,21 @@
     </footer>
 
   </div>
+
+  <!-- Inline behavior AFTER DOM exists -->
+  <script>
+    (function(){
+      const btn = document.getElementById("navIntakeStart");
+      const target = document.getElementById("formulier");
+      if (!btn || !target) return;
+
+      btn.addEventListener("click", function(e){
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        history.replaceState(null, "", "#formulier");
+      });
+    })();
+  </script>
 
   <script src="./script.js"></script>
 </body>
