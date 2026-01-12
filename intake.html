@@ -12,9 +12,10 @@
 
   <link rel="stylesheet" href="./styles.css">
 
-  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="./assets/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" sizes="180x180">
+  <!-- Icons (root) -->
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180">
 
   <!-- Input styling (kan later naar styles.css) -->
   <style>
@@ -45,7 +46,7 @@
     <header class="topbar" role="banner">
       <div class="topbar__inner">
         <a class="brand" href="./index.html" aria-label="Bronsaer Capital">
-          <img class="brand__mark" src="./assets/logo-bc.svg" alt="BC">
+          <img class="brand__mark" src="./logo-bc.svg" alt="BC">
           <div class="brand__meta">AMSTERDAM-BASED · WILLEMSPARK · FONDS IN OPBOUW</div>
         </a>
 
@@ -56,7 +57,6 @@
           <a class="nav__link" href="./over.html">Over</a>
           <a class="nav__link" href="./disclaimer.html">Disclaimer</a>
 
-          <!-- BELANGRIJK: dit werkt vanaf elke pagina -->
           <a class="btn" href="./intake.html#formulier">Intake aanvragen</a>
         </nav>
       </div>
@@ -247,180 +247,180 @@
     </footer>
 
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
-<script>
-(async function () {
-  const btn = document.getElementById("downloadIntakePDF");
-  const formEl = document.getElementById("intakeForm");
-  if (!btn || !formEl) return;
+  <script>
+    (async function () {
+      const btn = document.getElementById("downloadIntakePDF");
+      const formEl = document.getElementById("intakeForm");
+      if (!btn || !formEl) return;
 
-  async function fetchArrayBuffer(url) {
-    const res = await fetch(url, { cache: "no-store" });
-    if (!res.ok) throw new Error(`Fetch failed: ${url}`);
-    return await res.arrayBuffer();
-  }
-
-  btn.addEventListener("click", async () => {
-    try {
-      const { PDFDocument, StandardFonts, rgb } = PDFLib;
-
-      // Form data
-      const fd = new FormData(formEl);
-      const v = (k) => (fd.get(k) ?? "").toString().trim();
-
-      // Maak PDF
-      const pdfDoc = await PDFDocument.create();
-      const page = pdfDoc.addPage([595.28, 841.89]); // A4 in points
-      const { width, height } = page.getSize();
-
-      // Fonts
-      const fontBody = await pdfDoc.embedFont(StandardFonts.Helvetica);
-      const fontTitle = await pdfDoc.embedFont(StandardFonts.TimesRoman);
-
-      // Kleuren (rustig)
-      const ink = rgb(0.10, 0.10, 0.12);
-      const muted = rgb(0.35, 0.35, 0.38);
-      const line = rgb(0.85, 0.85, 0.88);
-
-      // Marges
-      const M = 56; // ~20mm
-      let y = height - M;
-
-      // Logo (PNG)
-      let logoDrawn = false;
-      try {
-        const logoBytes = await fetchArrayBuffer("./assets/logo-bc.png");
-        const logoPng = await pdfDoc.embedPng(logoBytes);
-        const logoW = 120;
-        const logoH = (logoPng.height / logoPng.width) * logoW;
-        page.drawImage(logoPng, { x: M, y: y - logoH + 6, width: logoW, height: logoH });
-        logoDrawn = true;
-      } catch (_) {
-        // fallback: geen logo
+      async function fetchArrayBuffer(url) {
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) throw new Error(`Fetch failed: ${url}`);
+        return await res.arrayBuffer();
       }
 
-      // Header rechts
-      const today = new Date();
-      const dateNL = today.toLocaleDateString("nl-NL");
+      btn.addEventListener("click", async () => {
+        try {
+          const { PDFDocument, StandardFonts, rgb } = PDFLib;
 
-      const headerX = M + (logoDrawn ? 140 : 0);
-      page.drawText("Intake formulier", {
-        x: headerX,
-        y: y - 6,
-        size: 22,
-        font: fontTitle,
-        color: ink,
+          // Form data
+          const fd = new FormData(formEl);
+          const v = (k) => (fd.get(k) ?? "").toString().trim();
+
+          // Maak PDF
+          const pdfDoc = await PDFDocument.create();
+          const page = pdfDoc.addPage([595.28, 841.89]); // A4 in points
+          const { width, height } = page.getSize();
+
+          // Fonts
+          const fontBody = await pdfDoc.embedFont(StandardFonts.Helvetica);
+          const fontTitle = await pdfDoc.embedFont(StandardFonts.TimesRoman);
+
+          // Kleuren (rustig)
+          const ink = rgb(0.10, 0.10, 0.12);
+          const muted = rgb(0.35, 0.35, 0.38);
+          const line = rgb(0.85, 0.85, 0.88);
+
+          // Marges
+          const M = 56; // ~20mm
+          let y = height - M;
+
+          // Logo (PNG) — verwacht in root: ./logo-bc.png
+          let logoDrawn = false;
+          try {
+            const logoBytes = await fetchArrayBuffer("./logo-bc.png");
+            const logoPng = await pdfDoc.embedPng(logoBytes);
+            const logoW = 120;
+            const logoH = (logoPng.height / logoPng.width) * logoW;
+            page.drawImage(logoPng, { x: M, y: y - logoH + 6, width: logoW, height: logoH });
+            logoDrawn = true;
+          } catch (_) {
+            // fallback: geen logo
+          }
+
+          // Header rechts
+          const today = new Date();
+          const dateNL = today.toLocaleDateString("nl-NL");
+
+          const headerX = M + (logoDrawn ? 140 : 0);
+          page.drawText("Intake formulier", {
+            x: headerX,
+            y: y - 6,
+            size: 22,
+            font: fontTitle,
+            color: ink,
+          });
+          page.drawText(`Bronsaer Capital · Amsterdam · ${dateNL}`, {
+            x: headerX,
+            y: y - 28,
+            size: 10,
+            font: fontBody,
+            color: muted,
+          });
+
+          // Divider
+          y -= 52;
+          page.drawLine({ start: { x: M, y }, end: { x: width - M, y }, thickness: 1, color: line });
+
+          // Helpers
+          const form = pdfDoc.getForm();
+
+          function label(txt, x, yy) {
+            page.drawText(txt, { x, y: yy, size: 9, font: fontBody, color: muted });
+          }
+
+          function textField(name, x, yy, w, h, preset = "") {
+            const f = form.createTextField(name);
+            f.setText(preset);
+            f.enableMultiline();
+            f.addToPage(page, {
+              x, y: yy - h,
+              width: w, height: h,
+              borderWidth: 1,
+              borderColor: line,
+              textColor: ink,
+              font: fontBody,
+            });
+            return f;
+          }
+
+          // Layout grid
+          y -= 28;
+          page.drawText("Persoonsgegevens", { x: M, y, size: 12, font: fontBody, color: ink });
+          y -= 10;
+          page.drawLine({ start: { x: M, y }, end: { x: width - M, y }, thickness: 1, color: line });
+
+          y -= 18;
+
+          const colGap = 18;
+          const colW = (width - 2 * M - colGap) / 2;
+
+          // Rij 1
+          label("Naam", M, y);
+          label("E-mail", M + colW + colGap, y);
+
+          y -= 6;
+          textField("naam", M, y, colW, 24, v("naam"));
+          textField("email", M + colW + colGap, y, colW, 24, v("email"));
+
+          y -= 42;
+
+          // Rij 2
+          label("Organisatie (optioneel)", M, y);
+          label("Horizon", M + colW + colGap, y);
+
+          y -= 6;
+          textField("org", M, y, colW, 24, v("org"));
+          textField("horizon", M + colW + colGap, y, colW, 24, v("horizon"));
+
+          y -= 52;
+
+          // Grote velden
+          page.drawText("Beleggingservaring", { x: M, y, size: 11, font: fontBody, color: ink });
+          y -= 8;
+          textField("ervaring", M, y, width - 2 * M, 90, v("ervaring"));
+
+          y -= 110;
+          page.drawText("Motivatie", { x: M, y, size: 11, font: fontBody, color: ink });
+          y -= 8;
+          textField("motivatie", M, y, width - 2 * M, 90, v("motivatie"));
+
+          y -= 110;
+          page.drawText("Vragen / opmerkingen", { x: M, y, size: 11, font: fontBody, color: ink });
+          y -= 8;
+          textField("overig", M, y, width - 2 * M, 90, v("overig"));
+
+          // Footer
+          const footer = "Informatief document — geen aanbod of beleggingsadvies. Eventuele samenwerking uitsluitend na intake en vastlegging van afspraken.";
+          page.drawLine({ start: { x: M, y: 70 }, end: { x: width - M, y: 70 }, thickness: 1, color: line });
+          page.drawText(footer, { x: M, y: 52, size: 8.5, font: fontBody, color: muted });
+
+          // Zorg dat form fields “zichtbaar” en editable zijn in viewers
+          form.updateFieldAppearances(fontBody);
+
+          // Download
+          const pdfBytes = await pdfDoc.save();
+          const blob = new Blob([pdfBytes], { type: "application/pdf" });
+          const url = URL.createObjectURL(blob);
+
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `BronsaerCapital-Intake-${today.toISOString().slice(0,10)}.pdf`;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+
+        } catch (err) {
+          console.error(err);
+          alert("PDF generatie mislukt. Check console (F12) voor details.");
+        }
       });
-      page.drawText(`Bronsaer Capital · Amsterdam · ${dateNL}`, {
-        x: headerX,
-        y: y - 28,
-        size: 10,
-        font: fontBody,
-        color: muted,
-      });
+    })();
+  </script>
 
-      // Divider
-      y -= 52;
-      page.drawLine({ start: { x: M, y }, end: { x: width - M, y }, thickness: 1, color: line });
-
-      // Helpers
-      const form = pdfDoc.getForm();
-
-      function label(txt, x, yy) {
-        page.drawText(txt, { x, y: yy, size: 9, font: fontBody, color: muted });
-      }
-
-      function textField(name, x, yy, w, h, preset = "") {
-        const f = form.createTextField(name);
-        f.setText(preset);
-        f.enableMultiline();
-        f.addToPage(page, {
-          x, y: yy - h,
-          width: w, height: h,
-          borderWidth: 1,
-          borderColor: line,
-          textColor: ink,
-          font: fontBody,
-        });
-        return f;
-      }
-
-      // Layout grid
-      y -= 28;
-      page.drawText("Persoonsgegevens", { x: M, y, size: 12, font: fontBody, color: ink });
-      y -= 10;
-      page.drawLine({ start: { x: M, y }, end: { x: width - M, y }, thickness: 1, color: line });
-
-      y -= 18;
-
-      const colGap = 18;
-      const colW = (width - 2 * M - colGap) / 2;
-
-      // Rij 1
-      label("Naam", M, y);
-      label("E-mail", M + colW + colGap, y);
-
-      y -= 6;
-      textField("naam", M, y, colW, 24, v("naam"));
-      textField("email", M + colW + colGap, y, colW, 24, v("email"));
-
-      y -= 42;
-
-      // Rij 2
-      label("Organisatie (optioneel)", M, y);
-      label("Horizon", M + colW + colGap, y);
-
-      y -= 6;
-      textField("org", M, y, colW, 24, v("org"));
-      textField("horizon", M + colW + colGap, y, colW, 24, v("horizon"));
-
-      y -= 52;
-
-      // Grote velden
-      page.drawText("Beleggingservaring", { x: M, y, size: 11, font: fontBody, color: ink });
-      y -= 8;
-      textField("ervaring", M, y, width - 2 * M, 90, v("ervaring"));
-
-      y -= 110;
-      page.drawText("Motivatie", { x: M, y, size: 11, font: fontBody, color: ink });
-      y -= 8;
-      textField("motivatie", M, y, width - 2 * M, 90, v("motivatie"));
-
-      y -= 110;
-      page.drawText("Vragen / opmerkingen", { x: M, y, size: 11, font: fontBody, color: ink });
-      y -= 8;
-      textField("overig", M, y, width - 2 * M, 90, v("overig"));
-
-      // Footer
-      const footer = "Informatief document — geen aanbod of beleggingsadvies. Eventuele samenwerking uitsluitend na intake en vastlegging van afspraken.";
-      page.drawLine({ start: { x: M, y: 70 }, end: { x: width - M, y: 70 }, thickness: 1, color: line });
-      page.drawText(footer, { x: M, y: 52, size: 8.5, font: fontBody, color: muted });
-
-      // Zorg dat form fields “zichtbaar” en editable zijn in viewers
-      form.updateFieldAppearances(fontBody);
-
-      // Download
-      const pdfBytes = await pdfDoc.save();
-      const blob = new Blob([pdfBytes], { type: "application/pdf" });
-      const url = URL.createObjectURL(blob);
-
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `BronsaerCapital-Intake-${today.toISOString().slice(0,10)}.pdf`;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-
-    } catch (err) {
-      console.error(err);
-      alert("PDF generatie mislukt. Check console (F12) voor details.");
-    }
-  });
-})();
-</script>
-
-  <
-
+  <script src="./script.js"></script>
 </body>
 </html>
