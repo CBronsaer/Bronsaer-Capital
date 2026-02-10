@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Volatiliteit rond tech & rente — Bronsaer Capital</title>
+  <meta name="description" content="Market Brief: koersen, gebeurtenissen, analyse en impact op strategie.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles.css">
+
+  <!-- Social preview (per post) -->
+  <meta property="og:title" content="Volatiliteit rond tech & rente">
+  <meta property="og:description" content="Market Brief: koersen, gebeurtenissen, analyse en impact op strategie.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bronsaercapital.com/insights/2026-02-10-volatiliteit-tech-rente.html">
+  <!-- Optioneel: eigen OG image per post -->
+  <!-- <meta property="og:image" content="https://bronsaercapital.com/assets/og/2026-02-10.jpg"> -->
+
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body id="top">
+  <div class="wrap">
+
+    <header class="topbar" role="banner">
+      <div class="topbar__inner">
+        <a class="brand" href="../index.html" aria-label="Bronsaer Capital">
+          <img class="brand__mark" src="../logo-bc.svg" alt="BC">
+          <div class="brand__meta">AMSTERDAM-BASED · WILLEMSPARK · FONDS IN OPBOUW</div>
+        </a>
+
+        <nav class="nav" aria-label="Hoofdnavigatie">
+          <a class="nav__link" href="../index.html">Home</a>
+          <a class="nav__link" href="../strategie.html">Strategie</a>
+          <a class="nav__link" href="../intake.html">Intake</a>
+          <a class="nav__link" href="../over.html">Over</a>
+          <a class="nav__link" href="../disclaimer.html">Disclaimer</a>
+          <a class="nav__link is-active" href="../insights.html">Insights</a>
+
+          <a class="btn" href="../intake.html#formulier">Intake aanvragen</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="container">
+
+        <section class="section" aria-label="Insight">
+          <div class="grid">
+            <article class="card" style="grid-column: 1 / -1;">
+              <p class="hero__kicker" style="margin-bottom:8px;">Market Brief · 10 feb 2026</p>
+              <h1 class="hero__title" style="margin-bottom:10px;">Volatiliteit rond tech & rente</h1>
+
+              <p class="hero__lead">
+                Korte intro (2 zinnen). Dit is letterlijk je LinkedIn caption als je ‘m strak schrijft.
+              </p>
+
+              <div class="mt-14">
+                <h2>Stand van de markt</h2>
+                <ul class="bullets">
+                  <li>AEX: …</li>
+                  <li>S&P 500: …</li>
+                  <li>Nasdaq: …</li>
+                  <li>EUR/USD, olie, goud: …</li>
+                </ul>
+              </div>
+
+              <div class="mt-14">
+                <h2>Belangrijke ontwikkelingen</h2>
+                <ul class="bullets">
+                  <li>…</li>
+                  <li>…</li>
+                </ul>
+              </div>
+
+              <div class="mt-14">
+                <h2>Korte analyse</h2>
+                <p>
+                  …
+                </p>
+              </div>
+
+              <div class="mt-14">
+                <h2>Impact op strategie</h2>
+                <p>
+                  …
+                </p>
+              </div>
+
+              <div class="mt-14">
+                <a class="btn btn--ghost" href="../insights.html">← Terug naar Insights</a>
+                <a class="btn" href="../intake.html#formulier">Intake aanvragen</a>
+                <a class="btn btn--ghost" href="#" data-share data-url="https://bronsaercapital.com/insights/2026-02-10-volatiliteit-tech-rente.html">
+                  Link kopiëren (socials)
+                </a>
+              </div>
+
+              <p class="note mt-14">
+                Informatie is geen beleggingsadvies. Zie <a class="link" href="../disclaimer.html">disclaimer</a>.
+              </p>
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="footer" aria-label="Footer">
+      <div class="container">
+        <h3>Disclaimer</h3>
+        <p>
+          De informatie op deze website is uitsluitend bedoeld voor informatieve doeleinden en vormt geen aanbod,
+          uitnodiging of aanbeveling. Beleggen brengt risico’s met zich mee. Resultaten uit het verleden bieden geen garantie voor de toekomst.
+        </p>
+        <div class="footer__meta">© <span id="year"></span> Bronsaer Capital — Amsterdam</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    (function(){
+      const buttons = document.querySelectorAll("[data-share]");
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", async (e) => {
+          e.preventDefault();
+          const url = btn.getAttribute("data-url") || window.location.href;
+
+          try {
+            await navigator.clipboard.writeText(url);
+            const old = btn.textContent;
+            btn.textContent = "Gekopieerd ✅";
+            setTimeout(() => btn.textContent = old, 1400);
+          } catch {
+            prompt("Kopieer deze link:", url);
+          }
+        });
+      });
+    })();
+  </script>
+
+  <script src="../script.js"></script>
+</body>
+</html>
